@@ -1,21 +1,29 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { STATS } from '@/lib/data';
 
 export default function Stats() {
-  // Duplicate the list so the marquee can loop seamlessly.
-  const row = [...STATS, ...STATS];
-
   return (
-    <section aria-label="Highlights" className="relative border-y border-edge py-8">
-      <div className="mask-fade-r overflow-hidden">
-        <div className="flex w-max animate-marquee gap-12 pr-12 hover:[animation-play-state:paused]">
-          {row.map((s, i) => (
-            <div key={i} className="flex shrink-0 items-baseline gap-3">
-              <span className="font-display text-2xl font-semibold text-gradient">{s.value}</span>
-              <span className="text-sm text-ink-secondary">{s.label}</span>
-              <span className="ml-9 h-4 w-px bg-edge" />
-            </div>
+    <section aria-label="Highlights" className="relative border-y border-edge py-0">
+      <div className="container-w">
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-none bg-edge sm:grid-cols-3 lg:grid-cols-5">
+          {STATS.map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.6, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
+              className="group flex flex-col gap-2.5 bg-base px-7 py-10 transition-colors hover:bg-base-800/50 md:px-8 md:py-12"
+            >
+              <span className="font-display text-3xl font-semibold text-gradient leading-none md:text-4xl xl:text-5xl">
+                {s.value}
+              </span>
+              <span className="text-xs leading-snug text-ink-tertiary md:text-sm md:text-ink-secondary">
+                {s.label}
+              </span>
+            </motion.div>
           ))}
         </div>
       </div>

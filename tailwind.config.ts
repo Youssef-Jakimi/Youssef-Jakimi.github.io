@@ -10,11 +10,11 @@ const config: Config = {
       colors: {
         // Near-black cinematic canvas
         base: {
-          DEFAULT: '#08080b',
-          900: '#0a0a0f',
-          800: '#101018',
-          700: '#16161f',
-          600: '#1e1e2a',
+          DEFAULT: '#121414',
+          900: '#0c0d0d',
+          800: '#181a1a',
+          700: '#1f2222',
+          600: '#272b2b',
         },
         // Electric indigo/violet accent system
         accent: {
@@ -36,9 +36,9 @@ const config: Config = {
           600: '#8b2fff',
         },
         ink: {
-          DEFAULT: '#f4f4f7',
-          secondary: '#a6a6b3',
-          tertiary: '#6c6c7a',
+          DEFAULT: '#e3e2e2',
+          secondary: '#9a9aaa',
+          tertiary: '#636370',
         },
         edge: {
           DEFAULT: 'rgba(255,255,255,0.08)',
